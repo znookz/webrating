@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+
+ 
+        <h1 align='center'>vote page</h1>
+      
+
+    <div class="row">      
+        <div class="col align-self-center">
+          <button type="button" class="btn btn-primary btn-block" onclick="myFunction(1,'พอใจมาก')"  data-toggle="modal" data-target="#exampleModal">
+            พอใจมาก
+          </button>               
+        </div>
+        <div class="col align-self-center">
+          <button type="button" class="btn btn-primary btn-block" onclick="myFunction(2,'พอใจปานกลาง')"  data-toggle="modal" data-target="#exampleModal">
+            พอใจปานกลาง
+          </button>   
+      </div>
+        <div class="col align-self-center">
+          <button type="button" class="btn btn-primary btn-block" onclick="myFunction(3,'ไม่พอใจ')"  data-toggle="modal" data-target="#exampleModal">
+            ไม่พอใจ
+          </button>   
+      </div>
+    </div>  
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<form action="voterecord" method="post">
+  {% csrf_token %}
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p id="textshop" > ยังไม่ได้ vote </p>
+        <input type="hidden" id="scorevote" name="scorevote" value="1" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" >Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+</form>
+
+{% endblock %}
+
